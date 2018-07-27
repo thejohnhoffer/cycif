@@ -1805,7 +1805,7 @@ const index_name = function(list, name) {
   return list.indexOf(item);
 };
 
-const load_json = function(url) {
+const load_yaml = function(url) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -1824,7 +1824,5 @@ const load_json = function(url) {
   xhttp.send();
 };
 
-load_json(`
-  
-`);
+load_yaml();
 

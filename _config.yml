@@ -1,6 +1,7 @@
 theme: jekyll-theme-hacker
 title: Cyclic Immunofluorescence
 description: A DIY Approach to Highly Multiplexed Cell and Tissue Imaging
+data_source: data
 sass:
     load_paths:
         - _scss
