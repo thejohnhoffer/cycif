@@ -66,7 +66,7 @@ Exhibit:
       t-CyCIF of a large resection specimen from a patient with pancreatic cancer. The entire sample comprising 143 stitched 10X fields of view is shown.
     Waypoints:
     - Name: The Waypoint
-      Group: The Group
+      Group: EMT Markers
       Description: |
         The waypoint description
       Overlay:

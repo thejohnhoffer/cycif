@@ -127,7 +127,7 @@ Exhibit:
       Eight-cycle t-CyCIF of a tissue microarray (TMA) including 13 normal tissues and corresponding tumor types. The TMA includes normal tissue types, and corresponding high and low grade tumors, for a total of 39 specimens.
     Waypoints:
     - Name: The Waypoint
-      Group: The Group
+      Group: Cycle 1
       Description: |
         The waypoint description
       Overlay:

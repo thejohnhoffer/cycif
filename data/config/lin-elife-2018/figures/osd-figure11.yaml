@@ -66,7 +66,7 @@ Exhibit:
         Molecular heterogeneity in a single GBM tumor. (A) Representative low magnification image of a GBM specimen generated from 221 stitched 10X frames; the sample was subjected to 10 rounds of t-CyCIF.
     Waypoints:
     - Name: The Waypoint
-      Group: The Group
+      Group: Tumor Markers 
       Description: |
         The waypoint description
       Overlay:

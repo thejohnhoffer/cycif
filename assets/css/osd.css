@@ -48,6 +48,11 @@ a, .navbar-toggler {
     text-align: center;
 }
 
+.white.overlay {
+    border: 2px solid white;
+    background: none;
+}
+
 .slide-border {
     border: 1px solid hsl(0, 0%, 20%);
 }
@@ -64,4 +69,36 @@ a, .navbar-toggler {
 
 .channel-picker:last-child {
     border-right-width: 1px;
+}
+
+.story-content img {
+    max-width: 100%;
+}
+.story-content h1 {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem 0;
+}
+.story-content h2 {
+    font-size: 1.1rem;
+    margin: 0 0 0.4rem 0;
+}
+.story-content h3 {
+    font-size: 1.0rem;
+    margin: 0 0 0.3rem 0;
+}
+.story-content h4 {
+    font-size: 0.9rem;
+    margin: 0 0 0.2rem 0;
+}
+.story-content h5 {
+    font-size: .8rem;
+    margin: 0 0 0.1rem 0;
+}
+.story-content h6 {
+    font-size: .8rem;
+    margin: 0 0 0 0;
+}
+.story-content code {
+    color: inherit;
+    font-family: sans-serif;
 }
