@@ -15,13 +15,13 @@ layout: base
                 <div id="openseadragon1" class="openseadragon"></div>
                 <div id="legend" class="position-absolute tab-content text-white p-2 bg-trans" style="top: 5px; right:20px">
                 {% for group in exhibit.Groups %}
-                    {% assign g = group.Path %}
+                    {% assign g = forloop.index0 %}
                     {% assign active = "" %}
                     {% if forloop.first == true %}
                         {% assign active = "active show" %}
                     {% endif %}
                     <ul class="list-unstyled tab-pane {{active}}"
-                        id="l-{{g}}" role="tabpanel" aria-labeledby="{{g}}">
+                        id="cg-{{g}}" role="tabpanel">
                     {% assign names = group.Channels %}
                     {% for color in group.Colors %}
                         <li>
@@ -43,7 +43,7 @@ layout: base
                         <a class="btn" id="zoom-home" href="#zoom-home" title="Zoom home">
                             <i class="fas fa-home"></i>
                         </a>
-                        <a class="btn" id="zoom-out" href="#zoom-out" title="Zoom out">
+                        <a class="btn" id="zoom-out" nref="#zoom-out" title="Zoom out">
                             <i class="fas fa-search-minus"></i>
                         </a>
                         <a class="btn" id="zoom-in" href="#zoom-in" title="Zoom in">
@@ -65,14 +65,14 @@ layout: base
 
                 <div class="nav flex nav-pills">
                 {% for group in exhibit.Groups %}
-                    {% assign g = group.Path %}
+                    {% assign g = forloop.index0 %}
                     {% assign active = "" %}
                     {% if forloop.first == true %}
                         {% assign active = "active" %}
                     {% endif %}
-                    <a class="nav-link {{active}}" id="{{g}}"
-                       title="{{group.Path}}" aria-controls"l-{{g}}"
-                       data-toggle="tab" role="tab" href="#l-{{g}}">
+                    <a class="nav-link group-tab {{active}}"
+                       data-g="{{g}}" title="{{group.Path}}"
+                       data-toggle="tab" role="tab" href="#cg-{{g}}">
                         {{group.Name}}
                     </a>
                 {% endfor %}
