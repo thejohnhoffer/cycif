@@ -43,22 +43,6 @@ a, .navbar-toggler {
     vertical-align: middle;
 }
 
-.legend-green {
-    background-color: #00FF00;
-}
-
-.legend-white {
-    background-color: #FFFFFF;
-}
-
-.legend-red {
-    background-color: #FF0000;
-}
-
-.legend-blue {
-    background-color: #0000FF;
-}
-
 .overlay-title {
     color: white;
     text-align: center;

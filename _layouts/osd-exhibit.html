@@ -5,30 +5,38 @@ layout: base
 <link rel="stylesheet" href="{{ '/assets/css/osd.css?v=' | append: site.github.build_revision | relative_url }}">
 
 <div id="content">
+{% assign config_paper = site.data.config[page.paper] %}
+{% assign config_figure = config_paper.figures[page.figure] %}
+{% assign exhibit = config_figure.Exhibit %}
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-9">
                 <div id="openseadragon1" class="openseadragon"></div>
-                <div id="legend" class="position-absolute text-white p-2 bg-trans" style="top: 5px; right:20px">
-                    <ul class="list-unstyled">
+                <div id="legend" class="position-absolute tab-content text-white p-2 bg-trans" style="top: 5px; right:20px">
+                {% for group in exhibit.Groups %}
+                    {% assign g = group.Path %}
+                    {% assign active = "" %}
+                    {% if forloop.first == true %}
+                        {% assign active = "active show" %}
+                    {% endif %}
+                    <ul class="list-unstyled tab-pane {{active}}"
+                        id="l-{{g}}" role="tabpanel" aria-labeledby="{{g}}">
+                    {% assign names = group.Channels %}
+                    {% for color in group.Colors %}
                         <li>
-                            <span class="badge legend-color legend-green">&nbsp;</span>
-                            <span class="legend-label px-2"></span>
+                        {% assign name = names[forloop.index0] %}
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="badge legend-color"
+                                        style="background: #{{ color }}">&nbsp;</span>
+                                    <span class="legend-label px-2">{{name}}</span>
+                                </li>
+                            </ul>
                         </li>
-                        <li>
-                            <span class="badge legend-color legend-white">&nbsp;</span>
-                            <span class="legend-label px-2"></span>
-                        </li>
-                        <li>
-                            <span class="badge legend-color legend-red">&nbsp;</span>
-                            <span class="legend-label px-2"></span>
-                        </li>
-                        <li>
-                            <span class="badge legend-color legend-blue">&nbsp;</span>
-                            <span class="legend-label px-2">DNA</span>
-                        </li>
+                    {% endfor %}
                     </ul>
+                {% endfor %}
                 </div>
                 <div class="position-absolute bg-trans" style="right: 30px; top: 30vh;">
                     <div class="btn-group-vertical">
@@ -54,11 +62,20 @@ layout: base
                     the Ashlar software from 165 successive CyteFinder fields using a 20X/0.8NA objective.
                 </p>
                 <p class="mb-1 mt-5">Select a marker group:</p>
+
                 <div class="nav flex nav-pills">
-                    <a class="nav-link active" id="S100-CD45RO-SMA" data-toggle="pill" href="javascript:;" title="S100-CD45RO-SMA" aria-selected="true">Tumor Architecture</a>
-                    <a class="nav-link" id="CD8-FOXP3-CD3" data-toggle="pill" href="javascript:;" title="CD8-FOXP3-CD3" aria-selected="false">T-Cells</a>
-                    <a class="nav-link" id="PD1-CD3-PDL1" data-toggle="pill" href="javascript:;" title="PD1-CD3-PDL1" aria-selected="false">PD-1/PD-L1</a>
-                    <a class="nav-link" id="pS6-pRB-HES1" data-toggle="pill" href="javascript:;" title="pS6-pRB-HES1" arial-selected="false">Signaling</a>
+                {% for group in exhibit.Groups %}
+                    {% assign g = group.Path %}
+                    {% assign active = "" %}
+                    {% if forloop.first == true %}
+                        {% assign active = "active" %}
+                    {% endif %}
+                    <a class="nav-link {{active}}" id="{{g}}"
+                       title="{{group.Path}}" aria-controls"l-{{g}}"
+                       data-toggle="tab" role="tab" href="#l-{{g}}">
+                        {{group.Name}}
+                    </a>
+                {% endfor %}
                 </div>
 
                 <p class="mb-2 mt-5">Figure from:</p>
