@@ -114,12 +114,16 @@ layout: base
 <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.3.1/openseadragon.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.3.1/openseadragon.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
 <script>
 const minerva_yaml_path = (function(root, page) {
   return root + page.split('/').slice(-3).join('/').split('.').shift() + '.yaml';
 })(
 "{{ '/data/config/' | prepend:site.baseurl }}",
 "{{ page.url }}");
+</script>
+<script>
+  {% include js-yaml.min.js %}
 </script>
 <script>
   {% include exhibits.js %}

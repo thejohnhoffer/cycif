@@ -1824,5 +1824,5 @@ const load_yaml = function(url) {
   xhttp.send();
 };
 
-load_yaml();
+load_yaml(minerva_yaml_path);
 
